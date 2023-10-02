@@ -1,4 +1,3 @@
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,10 +11,11 @@ public class MedicineController {
     @PostMapping
     public boolean addMedicine(@RequestBody Medicine medicine) {
         // Implement logic to add medicine to the pharmacy system
-        return medicines.add(medicine);
+        boolean added= medicines.add(medicine);
+        return added;
     }
 
-    @PutMapping("/{medicineId}")
+    @PutMapping("/medicines/{medicineId}")
     public Medicine updateMedicine(@PathVariable int medicineId, @RequestBody Medicine updatedMedicine) {
         // Implement logic to update medicine with the given medicineId
         for (Medicine medicine : medicines) {
