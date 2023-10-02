@@ -9,19 +9,18 @@ import java.util.List;
 public class MedicineController {
     private List<Medicine> pharmacySystem = new ArrayList<>();
 
-    // POST endpoint to add a Medicine to the pharmacy system
     @PostMapping
     public boolean addMedicine(@RequestBody Medicine medicine) {
-        // You can add validation logic here if needed
+        // Implement logic to add medicine to the pharmacy system
         return pharmacySystem.add(medicine);
     }
 
-    // PUT endpoint to update a Medicine by medicineId
     @PutMapping("/{medicineId}")
     public Medicine updateMedicine(@PathVariable int medicineId, @RequestBody Medicine updatedMedicine) {
+        // Implement logic to update medicine with the given medicineId
         for (Medicine medicine : pharmacySystem) {
             if (medicine.getMedicineId() == medicineId) {
-                // Update the existing medicine with the new details
+                // Update the existing medicine with updatedMedicine data
                 medicine.setMedicineName(updatedMedicine.getMedicineName());
                 medicine.setPrice(updatedMedicine.getPrice());
                 medicine.setQuantity(updatedMedicine.getQuantity());
