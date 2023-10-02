@@ -1,4 +1,4 @@
-import model.Medicine;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -7,18 +7,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/medicines")
 public class MedicineController {
-    private List<Medicine> pharmacySystem = new ArrayList<>();
+    private List<Medicine> medicines = new ArrayList<>();
 
     @PostMapping
     public boolean addMedicine(@RequestBody Medicine medicine) {
         // Implement logic to add medicine to the pharmacy system
-        return pharmacySystem.add(medicine);
+        return medicines.add(medicine);
     }
 
     @PutMapping("/{medicineId}")
     public Medicine updateMedicine(@PathVariable int medicineId, @RequestBody Medicine updatedMedicine) {
         // Implement logic to update medicine with the given medicineId
-        for (Medicine medicine : pharmacySystem) {
+        for (Medicine medicine : medicines) {
             if (medicine.getMedicineId() == medicineId) {
                 // Update the existing medicine with updatedMedicine data
                 medicine.setMedicineName(updatedMedicine.getMedicineName());
